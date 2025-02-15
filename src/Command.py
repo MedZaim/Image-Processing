@@ -64,6 +64,9 @@ def processSaveCommand(leftSetting,image,result):
     file_path = asksaveasfilename(
                 filetypes=[("png files","*.png")],defaultextension=".png"
             )
-    img1 = result.getPillImage().copy()
+    if not file_path.__contains__(".png"):
+        file_path = file_path + ".png"
+
+    img1 = result.getPillImage()
     img1 = img1.save(file_path)
 
